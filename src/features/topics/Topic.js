@@ -9,7 +9,8 @@ export default function Topic() {
   const quizzes = useSelector(selectQuizzes)
   let { topicId } = useParams()
   const topic = topics[topicId]
-  const quizzesForTopic = Object.values(quizzes).filter(quiz => quiz.topicId == topic.id)
+  const quizzesForTopic = topic.quizIds.map(quizId => quizzes[quizId])
+  
   return (
     <>
       <h2>Topic: {topic.name}</h2>
