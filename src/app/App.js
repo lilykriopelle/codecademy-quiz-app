@@ -3,10 +3,14 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  useRouteMatch,
+  useParams
 } from 'react-router-dom';
 import NewQuizForm from '../components/NewQuizForm';
+import NewTopicForm from '../components/NewTopicForm';
 import Topics from '../features/topics/Topics';
+import Topic from '../features/topics/Topic';
 import Quizzes from '../features/quizzes/Quizzes';
 
 export default function App() {
@@ -29,7 +33,10 @@ export default function App() {
 
         <Switch>
           <Route path='/topics'>
-            <Topics />
+            <TopicsRoutes />
+          </Route>
+          <Route path='/new-topic'>
+            <NewTopicForm />
           </Route>
           <Route path='/quizzes'>
             <Quizzes />
@@ -41,4 +48,20 @@ export default function App() {
       </div>
     </Router>
   );
+}
+
+function TopicsRoutes () {
+  let match = useRouteMatch();
+
+  return (
+    <>
+      <Topics />
+
+      <Switch>
+        <Route path={`${match.path}/:topicId`}>
+          <Topic />
+        </Route>
+      </Switch>
+    </>
+  )
 }

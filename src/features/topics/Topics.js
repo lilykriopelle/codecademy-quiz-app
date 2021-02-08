@@ -1,15 +1,28 @@
 import NewTopicForm from '../../components/NewTopicForm'
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectTopics } from './topicsSlice'
+import { Link } from 'react-router-dom';
 
 export default function Topics() {
   const topics = useSelector(selectTopics)
-  debugger
+
   return (
     <>
       <h2>Topics</h2>
-      <NewTopicForm/>
-      {Object.values(topics).map(topic => <div>{topic.name}</div>)}
+      <ul className="topics-list">
+        {
+          Object.values(topics).map(topic => (
+            <Link to={`/topics/${topic.id}`}>
+              <li className="topic">
+                {topic.name}
+              </li>
+            </Link>
+          ))
+        }
+      </ul>
+      <Link to='/new-topic'>
+        Create New Topic
+      </Link>
     </>
   );
 }

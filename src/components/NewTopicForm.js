@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import { addTopic } from '../features/topics/topicsSlice'
-import { useDispatch } from 'react-redux';
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid'
 
 export default function NewTopicForm() {
-  const dispatch = useDispatch();
-  const [name, setName] = useState('');
+  const dispatch = useDispatch()
+  const [name, setName] = useState('')
+  const history = useHistory()
 
   const handleSubmit = (e) => {
     e.preventDefault()
     dispatch(addTopic({ name: name, id: uuidv4() }))
-    setName('')
+    history.push('/topics')
   }
 
   return (
