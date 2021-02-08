@@ -11,6 +11,7 @@ import NewQuizForm from '../components/NewQuizForm';
 import NewTopicForm from '../components/NewTopicForm';
 import Topics from '../features/topics/Topics';
 import Topic from '../features/topics/Topic';
+import Quiz from '../features/quizzes/Quiz';
 import Quizzes from '../features/quizzes/Quizzes';
 
 export default function App() {
@@ -39,7 +40,7 @@ export default function App() {
             <NewTopicForm />
           </Route>
           <Route path='/quizzes'>
-            <Quizzes />
+            <QuizRoutes />
           </Route>
           <Route path='/new-quiz'>
             <NewQuizForm />
@@ -55,11 +56,29 @@ function TopicsRoutes () {
 
   return (
     <>
-      <Topics />
-
       <Switch>
         <Route path={`${match.path}/:topicId`}>
           <Topic />
+        </Route>
+        <Route path={`${match.path}`}>
+          <Topics />
+        </Route>
+      </Switch>
+    </>
+  )
+}
+
+function QuizRoutes () {
+  let match = useRouteMatch();
+
+  return (
+    <>
+      <Switch>
+        <Route path={`${match.path}/:quizId`}>
+          <Quiz />
+        </Route>
+        <Route path={`${match.path}`}>
+          <Quizzes />
         </Route>
       </Switch>
     </>

@@ -12,7 +12,7 @@ export default function Topics() {
       <ul className="topics-list">
         {
           Object.values(topics).map(topic => (
-            <Link to={`/topics/${topic.id}`}>
+            <Link key={topic.id} to={`/topics/${topic.id}`}>
               <li className="topic">
                 {topic.name}
               </li>

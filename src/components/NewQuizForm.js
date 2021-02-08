@@ -1,22 +1,39 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import { addCard } from '../features/cards/cardsSlice'
+import { addQuiz } from '../features/quizzes/quizzesSlice'
+import { selectTopics } from '../features/topics/topicsSlice'
+import { v4 as uuidv4 } from 'uuid'
 
 export default function NewQuizForm() {
+  const topics = useSelector(selectTopics)
   const dispatch = useDispatch()
   const [name, setName] = useState('')
   const [cards, setCards] = useState([])
+  const [topicId, setTopicId] = useState('')
   const history = useHistory()
 
   const handleSubmit = e => {
     e.preventDefault()
-    // for each card in local state, create an id for the card and dispatch an action to add the card to the store
-    //
-    // dispatch an action here to add your quiz to the store
+    let cardIds =[]
+    let id;
+    cards.forEach(card => {
+      id = uuidv4()
+      cardIds.push(id)
+      dispatch(addCard(Object.assign({}, card, { id: id })))
+    })
+
+    dispatch(addQuiz({
+      name: name,
+      topicId: topicId,
+      cardIds: cardIds,
+      id:  uuidv4()}
+    ))
     history.push('/quizzes')
   }
 
-  const addCard = e => {
+  const addCardInputs = e => {
     e.preventDefault()
     setCards(cards.concat({ front: '', back: '' }))
   }
@@ -33,25 +50,30 @@ export default function NewQuizForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form>
       <h2>Create a New Quiz</h2>
       <label htmlFor='quiz-name'>Name</label>
       <input id='quiz-name' value={name} onChange={e => setName(e.currentTarget.value)}/>
-
+      <label htmlFor='quiz-topic'>Topic</label>
+      <select id='quiz-topic' onChange={e => setTopicId(e.currentTarget.value)}>
+        <option value=''>---</option>
+        { Object.values(topics).map(topic => <option key={topic.id} value={topic.id}>{topic.name}</option>) }
+      </select>
       {
         cards.map((card, index) => (
-          <div>
+          <div key={index}>
             <label htmlFor={`card-front-${index}`}>Front</label>
             <input id={`card-front-${index}`} value={cards[index].front} onChange={e => updateCardState(index, 'front', e.currentTarget.value)}/>
 
             <label htmlFor={`card-back-${index}`}>Back</label>
             <input id={`card-back-${index}`} value={cards[index].back} onChange={e => updateCardState(index, 'back', e.currentTarget.value)}/>
 
-            <button onClick={e => removeCard(e, index)}>removeCard</button>
+            <button onClick={e => removeCard(e, index)}>remove card</button>
           </div>
         ))
       }
-      <button onClick={addCard}>Add a Card</button>
+      <button onClick={addCardInputs}>Add a Card</button>
+      <button onClick={handleSubmit}>Create Quiz</button>
     </form>
   );
 }

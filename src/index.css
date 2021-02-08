@@ -16,12 +16,13 @@ ul {
   list-style: none;
 }
 
-.topics-list {
+.topics-list, .quizzes-list {
   display: flex;
   flex-wrap: wrap;
 }
 
-.topic {
+
+.topic, .quiz {
   width: 200px;
   height: 200px;
   background: gray;
@@ -30,4 +31,14 @@ ul {
   align-items: center;
   margin-right: 20px;
   margin-top: 20px;
+}
+
+.card {
+  width: 500px;
+  height: 250px;
+  background: gray;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
