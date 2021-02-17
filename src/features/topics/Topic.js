@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { selectTopics } from './topicsSlice'
 import { selectQuizzes } from '../quizzes/quizzesSlice'
 import { Link, useParams } from 'react-router-dom'
+import ROUTES from '../../app/routes'
 
 export default function Topic() {
   const topics = useSelector(selectTopics)
@@ -10,22 +11,22 @@ export default function Topic() {
   let { topicId } = useParams()
   const topic = topics[topicId]
   const quizzesForTopic = topic.quizIds.map(quizId => quizzes[quizId])
-  
+
   return (
     <>
       <h2>Topic: {topic.name}</h2>
       <ul className="quizzes-list">
         {
           quizzesForTopic.map(quiz => (
-            <Link key={quiz.id} to={`/quizzes/${quiz.id}`}>
-              <li className="quiz">
+            <li className="quiz" key={quiz.id} >
+              <Link to={ROUTES.quizRoute(quiz.id)}>
                 {quiz.name}
-              </li>
-            </Link>
+              </Link>
+            </li>
           ))
         }
       </ul>
-      <Link to='/new-quiz'>
+      <Link to='/quizzes/new'>
         Create a New Quiz
       </Link>
     </>

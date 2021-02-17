@@ -2,6 +2,7 @@ import NewTopicForm from '../../components/NewTopicForm'
 import { useSelector } from 'react-redux';
 import { selectTopics } from './topicsSlice'
 import { Link } from 'react-router-dom';
+import ROUTES from '../../app/routes'
 
 export default function Topics() {
   const topics = useSelector(selectTopics)
@@ -12,15 +13,15 @@ export default function Topics() {
       <ul className="topics-list">
         {
           Object.values(topics).map(topic => (
-            <Link key={topic.id} to={`/topics/${topic.id}`}>
-              <li className="topic">
+            <li className="topic" key={topic.id} >
+              <Link to={ROUTES.topicRoute(topic.id)}>
                 {topic.name}
-              </li>
-            </Link>
+              </Link>
+            </li>
           ))
         }
       </ul>
-      <Link to='/new-topic'>
+      <Link to={ROUTES.newTopicRoute()}>
         Create New Topic
       </Link>
     </>

@@ -13,6 +13,7 @@ import Topics from '../features/topics/Topics';
 import Topic from '../features/topics/Topic';
 import Quiz from '../features/quizzes/Quiz';
 import Quizzes from '../features/quizzes/Quizzes';
+import ROUTES from './routes'
 
 export default function App() {
   return (
@@ -21,13 +22,13 @@ export default function App() {
         <nav>
           <ul>
             <li>
-              <Link to='/topics'>Topics</Link>
+              <Link to={ROUTES.topicsRoute()}>Topics</Link>
             </li>
             <li>
-              <Link to='/quizzes'>Quizzes</Link>
+              <Link to={ROUTES.quizzesRoute()}>Quizzes</Link>
             </li>
             <li>
-              <Link to='/new-quiz'>New Quiz</Link>
+              <Link to={ROUTES.newQuizRoute()}>New Quiz</Link>
             </li>
           </ul>
         </nav>
@@ -36,14 +37,8 @@ export default function App() {
           <Route path='/topics'>
             <TopicsRoutes />
           </Route>
-          <Route path='/new-topic'>
-            <NewTopicForm />
-          </Route>
           <Route path='/quizzes'>
             <QuizRoutes />
-          </Route>
-          <Route path='/new-quiz'>
-            <NewQuizForm />
           </Route>
         </Switch>
       </div>
@@ -57,6 +52,9 @@ function TopicsRoutes () {
   return (
     <>
       <Switch>
+        <Route path={`${match.path}/new`}>
+          <NewTopicForm />
+        </Route>
         <Route path={`${match.path}/:topicId`}>
           <Topic />
         </Route>
@@ -74,6 +72,9 @@ function QuizRoutes () {
   return (
     <>
       <Switch>
+        <Route path={`${match.path}/new`}>
+          <NewQuizForm />
+        </Route>
         <Route path={`${match.path}/:quizId`}>
           <Quiz />
         </Route>

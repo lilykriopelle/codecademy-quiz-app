@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { addTopic } from '../features/topics/topicsSlice'
 import { v4 as uuidv4 } from 'uuid'
+import ROUTES from '../app/routes'
 
 export default function NewTopicForm() {
   const dispatch = useDispatch()
@@ -12,7 +13,7 @@ export default function NewTopicForm() {
   const handleSubmit = (e) => {
     e.preventDefault()
     dispatch(addTopic({ name: name, id: uuidv4() }))
-    history.push('/topics')
+    history.push(ROUTES.topicsRoute())
   }
 
   return (

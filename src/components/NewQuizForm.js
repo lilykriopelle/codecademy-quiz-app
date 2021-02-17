@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { addCard } from '../features/cards/cardsSlice'
-import { addQuiz } from '../features/quizzes/quizzesSlice'
-import { addQuizIdForTopic } from '../features/topics/topicsSlice'
+import { addQuizForTopicId } from '../features/quizzes/quizzesSlice'
 import { selectTopics } from '../features/topics/topicsSlice'
 import { v4 as uuidv4 } from 'uuid'
+import ROUTES from '../app/routes'
 
 export default function NewQuizForm() {
   const topics = useSelector(selectTopics)
@@ -17,28 +17,28 @@ export default function NewQuizForm() {
 
   const handleSubmit = e => {
     e.preventDefault()
-    let cardIds =[]
+    if (name.length === 0) {
+      return;
+    }
+
+    let cardIds = []
     let cardId
+
     cards.forEach(card => {
       cardId = uuidv4()
       cardIds.push(cardId)
-      dispatch(addCard(Object.assign({}, card, { id: cardId })))
+      dispatch(addCard({...card, id: cardId }))
     })
 
     let quizId = uuidv4()
-    dispatch(addQuiz({
+    dispatch(addQuizForTopicId({
       name: name,
       topicId: topicId,
       cardIds: cardIds,
       id:  quizId
     }))
 
-    dispatch(addQuizIdForTopic({
-      topicId: topicId,
-      quizId: quizId
-    }))
-    
-    history.push('/quizzes')
+    history.push(ROUTES.quizzesRoute())
   }
 
   const addCardInputs = e => {
@@ -58,7 +58,7 @@ export default function NewQuizForm() {
   }
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <h2>Create a New Quiz</h2>
       <label htmlFor='quiz-name'>Name</label>
       <input id='quiz-name' value={name} onChange={e => setName(e.currentTarget.value)}/>
@@ -81,7 +81,7 @@ export default function NewQuizForm() {
         ))
       }
       <button onClick={addCardInputs}>Add a Card</button>
-      <button onClick={handleSubmit}>Create Quiz</button>
+      <button>Create Quiz</button>
     </form>
   );
 }

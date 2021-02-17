@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { selectQuizzes } from './quizzesSlice'
 import { Link } from 'react-router-dom';
+import ROUTES from '../../app/routes'
 
 export default function Quizzes() {
   const quizzes = useSelector(selectQuizzes)
@@ -10,7 +11,7 @@ export default function Quizzes() {
       <ul className="quizzes-list">
         {
           Object.values(quizzes).map(quiz => (
-            <Link key={quiz.id} to={`/quizzes/${quiz.id}`}>
+            <Link key={quiz.id} to={ROUTES.quizRoute(quiz.id)}>
               <li className="quizz">
                 {quiz.name}
               </li>
@@ -18,7 +19,7 @@ export default function Quizzes() {
           ))
         }
       </ul>
-      <Link to='/new-quiz'>
+      <Link to={ROUTES.newQuizRoute()}>
         Create New Quiz
       </Link>
     </>
