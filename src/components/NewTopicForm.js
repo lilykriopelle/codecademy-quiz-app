@@ -12,6 +12,9 @@ export default function NewTopicForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    if (name.length === 0) {
+      return;
+    }
     dispatch(addTopic({ name: name, id: uuidv4() }))
     history.push(ROUTES.topicsRoute())
   }

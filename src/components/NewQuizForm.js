@@ -22,10 +22,9 @@ export default function NewQuizForm() {
     }
 
     let cardIds = []
-    let cardId
 
     cards.forEach(card => {
-      cardId = uuidv4()
+      let cardId = uuidv4()
       cardIds.push(cardId)
       dispatch(addCard({...card, id: cardId }))
     })

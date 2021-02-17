@@ -15,9 +15,12 @@ The app's state is totally normalized, with slices for topics, quizzes, and card
 * `/quizzes` – index of all quizzes
 * `/quizzes/:quizId` – page for an individual quiz
 
-
 # To Test
 
 1. Create topics 
 2. Create quizzes
 3. Visit the page for an individual quiz and flip the cards over
+
+# Questions
+
+Is this appropriately scoped? Does it have too many features? Too few?
