@@ -1,19 +1,19 @@
-import React from 'react';
+import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
   useRouteMatch,
-  useParams
-} from 'react-router-dom';
-import NewQuizForm from '../components/NewQuizForm';
-import NewTopicForm from '../components/NewTopicForm';
-import Topics from '../features/topics/Topics';
-import Topic from '../features/topics/Topic';
-import Quiz from '../features/quizzes/Quiz';
-import Quizzes from '../features/quizzes/Quizzes';
-import ROUTES from './routes'
+  useParams,
+} from "react-router-dom";
+import NewQuizForm from "../components/NewQuizForm";
+import NewTopicForm from "../components/NewTopicForm";
+import Topics from "../features/topics/Topics";
+import Topic from "../features/topics/Topic";
+import Quiz from "../features/quizzes/Quiz";
+import Quizzes from "../features/quizzes/Quizzes";
+import ROUTES from "./routes";
 
 export default function App() {
   return (
@@ -34,10 +34,10 @@ export default function App() {
         </nav>
 
         <Switch>
-          <Route path='/topics'>
+          <Route path="/topics">
             <TopicsRoutes />
           </Route>
-          <Route path='/quizzes'>
+          <Route path="/quizzes">
             <QuizRoutes />
           </Route>
         </Switch>
@@ -46,7 +46,7 @@ export default function App() {
   );
 }
 
-function TopicsRoutes () {
+function TopicsRoutes() {
   let match = useRouteMatch();
 
   return (
@@ -63,10 +63,10 @@ function TopicsRoutes () {
         </Route>
       </Switch>
     </>
-  )
+  );
 }
 
-function QuizRoutes () {
+function QuizRoutes() {
   let match = useRouteMatch();
 
   return (
@@ -83,5 +83,5 @@ function QuizRoutes () {
         </Route>
       </Switch>
     </>
-  )
+  );
 }

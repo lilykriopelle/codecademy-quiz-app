@@ -1,10 +1,10 @@
 const ROUTES = {
-  newQuizRoute: () => '/quizzes/new',
+  newQuizRoute: () => "/quizzes/new",
   quizRoute: (id) => `/quizzes/${id}`,
-  quizzesRoute: () => '/quizzes',
-  newTopicRoute: () => '/topics/new',
+  quizzesRoute: () => "/quizzes",
+  newTopicRoute: () => "/topics/new",
   topicRoute: (id) => `/topics/${id}`,
-  topicsRoute: () => '/topics'
-}
+  topicsRoute: () => "/topics",
+};
 
-export default ROUTES
+export default ROUTES;
