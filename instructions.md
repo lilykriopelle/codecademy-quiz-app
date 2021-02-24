@@ -42,7 +42,8 @@ Your app will include three slices: one for topics, one for quizzes (which will 
     topics: {
       '123': {
         id: '123',
-        name: 'example topic'
+        name: 'example topic',
+        quizIds: ['456']
       }
     }
   },
@@ -78,7 +79,7 @@ Your app will include three slices: one for topics, one for quizzes (which will 
 }
 ```
 
-You might be wondering why, for each slice, we are asking you to create a property with the same name as the slice itself. This app is relatively small, but you can imagine that in a more complex application you might want to store multiple groupings of topics, quizzes, or cards in one slice in state. For example, if you allowed users to favorite topics, you might store a `favoritedTopics` in your topics slice. By storing all the topics under a named key (rather than deciding that they should comprise the entire slice) you are creating a flexible state structure that can grow with you as you add functionality to your app.
+You might be wondering why, for each slice, we are asking you to create a property with the same name as the slice itself. This app is relatively small, but you can imagine that in a more complex application you might want to store multiple groupings of topics, quizzes, or cards in one slice in state. For example, if you allowed users to favorite topics, you might store a `favoriteTopics` in your topics slice. By storing all the topics under a named key (rather than deciding that they should comprise the entire slice) you are creating a flexible state structure that can grow with you as you add functionality to your app.
 
 ## Project Requirements
 
@@ -100,8 +101,7 @@ You might be wondering why, for each slice, we are asking you to create a proper
 - Redux Toolkit
 - Git and GitHub
 
-## Setup
-The quickest way to set up your app is to use [create-react-app](https://create-react-app.dev/) with [the Redux flag](https://redux-toolkit.js.org/introduction/quick-start#using-create-react-app) in order to automatically include Redux.
+## Dependencies
 
 ### `uuid`
 This app uses [`uuid`]([the documentation](https://www.npmjs.com/package/uuid)) to create unique identifiers for topics/quizzes/cards. We will be using the [`v4` function](https://www.npmjs.com/package/uuid#uuidv4options-buffer-offset), so take a moment to read that section of the docs before continuing on.   
@@ -110,6 +110,31 @@ This app uses [`uuid`]([the documentation](https://www.npmjs.com/package/uuid)) 
 This app uses `react-router` to handle routing between different pages. Since `react-router` is outside the scope of this project, we've written the routing code for you, but if you're curious about how it works, you can explore `App.js` (where the routes for this app are defined) and read the [`react-router` docs](https://reactrouter.com/).
 
 ## Tasks
+
+### Task Group 1: Create a Topics Slice
+– Task: Your first task is to write code to manage the state associated with topics. Create a slice that:
+  - Is named `topics`.
+  – Has initial state consisting of an object that includes one property, `topics`, which corresponds to an empty object. This object will eventually hold all topics keyed by `id`.
+  – Has an `addTopic` action. You can expect the payload for this action to look like `{id: '123456', name: 'name of topic'}`. In addition to storing these values in state, each topic should have a `quizIds` property, which will correspond to an array containing the `id`s of each quiz associated with the topic. When a topic is first created, it won't have any associated quizzes, but you should still create the `quizIds` array so that all topics in state conform to the same shape. Export the action creators and reducer your slice generates, as well as a selector that selects the `topics` object nested within `initialState`.
+– Hint: Use `createSlice` to generate your topics slice. Your `addTopic` action should modify the `topics` object in state by adding an object representing a single topic to the `topics` object. Remember, we want the `topics` object to be keyed by topic `id`, so insert your newly created single topic object as a the value associated with the `id` you receive in the action's `payload`.
+
+– Task: Add `topics` to the app's store.
+– Hint:
+
+– Task: In **Topics.js**, import the selector defined in your slice and use it to access all the topics in state. Instead of mapping over an empty array, iterate over the topics in state, putting a `Link` on the page for each one.
+– Hint:
+
+– Task: Next, you'll need to hook the new topic form up to the action creators your slice generates. In **NewTopicForm.js**, import `addTopic` and dispatch it from the event handler that runs when the new topic form is submitted. Verify that your code is working by filling out the form and submitting it. You should be redirected to the `/topics` page and should see your newly created topic there.
+– Hint:
+
+– Task:
+– Hint:
+
+### Task Group 2: Quizzes
+
+### Task Group 3: Cards
+
+### Task Group 4:
 
 ## Example Code
 
