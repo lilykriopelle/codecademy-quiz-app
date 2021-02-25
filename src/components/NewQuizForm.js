@@ -1,14 +1,10 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { addCard } from "../features/cards/cardsSlice";
-import { addQuizForTopicId } from "../features/quizzes/quizzesSlice";
-import { selectTopics } from "../features/topics/topicsSlice";
 import { v4 as uuidv4 } from "uuid";
 import ROUTES from "../app/routes";
 
 export default function NewQuizForm() {
-  const topics = useSelector(selectTopics);
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [cards, setCards] = useState([]);
@@ -21,23 +17,8 @@ export default function NewQuizForm() {
       return;
     }
 
-    let cardIds = [];
-
-    cards.forEach((card) => {
-      let cardId = uuidv4();
-      cardIds.push(cardId);
-      dispatch(addCard({ ...card, id: cardId }));
-    });
-
-    let quizId = uuidv4();
-    dispatch(
-      addQuizForTopicId({
-        name: name,
-        topicId: topicId,
-        cardIds: cardIds,
-        id: quizId,
-      })
-    );
+    // create the new cards here
+    // create the new quiz here
 
     history.push(ROUTES.quizzesRoute());
   };
@@ -73,7 +54,7 @@ export default function NewQuizForm() {
         onChange={(e) => setTopicId(e.currentTarget.value)}
       >
         <option value="">---</option>
-        {Object.values(topics).map((topic) => (
+        {[].map((topic) => (
           <option key={topic.id} value={topic.id}>
             {topic.name}
           </option>

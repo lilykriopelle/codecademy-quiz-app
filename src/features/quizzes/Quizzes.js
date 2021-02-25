@@ -1,10 +1,8 @@
-import { useSelector } from "react-redux";
-import { selectQuizzes } from "./quizzesSlice";
 import { Link } from "react-router-dom";
 import ROUTES from "../../app/routes";
 
 export default function Quizzes() {
-  const quizzes = useSelector(selectQuizzes);
+  const quizzes = {}; // replace this with a call to your selector to get all the quizzes in state
   return (
     <>
       <h2>Quizzes</h2>
