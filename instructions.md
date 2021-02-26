@@ -3,11 +3,10 @@
 Quiz App
 
 
-# Description
-Create an app that allows users to create topics, quizzes, and flashcards and interact with their quizzes by flipping flashcards over.
+# Project Goals
+In this project, you will practice using Redux and Redux Toolkit to manage the complex state of a flashcard-style quiz app. Users will be able to create their own topics, quizzes for those topics, and flashcards for those quizzes. Users will also be able to interact with their quizzes by flipping flashcards over.
 
-# Objective
-This project – an app in which users can create and view topics and quizzes (which are comprised of flashcards) that are associated with those topics – gives you an opportunity to practice using Redux and Redux Toolkit to manage complex state.
+The following task descriptions will walk through implementing the app's Redux logic starting with topics, then quizzes, and then cards. If you would like to implement it in a different order feel free to do what is comfortable for you.
 
 ## Functionality
 On the `'/topics/new'` page:
