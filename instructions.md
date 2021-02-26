@@ -34,7 +34,7 @@ On the `'/quizzes/:quizId'` page:
 
 ## State Structure
 
-Your app will include three slices: one for topics, one for quizzes (which will have a `topicId` corresponding to a topic in state), and one for cards (which will have a `quizId` corresponding to a quiz in state). Each slice's state should include an object storing all the topics/quizzes/cards keyed by their `id`. This will allow you to quickly retrieve an object's information whenever you need to look it up. All together, your app state will look like this:
+Your app will include three slices: one for topics, one for quizzes, and one for cards. Each slice's state should include an object storing all the topics/quizzes/cards keyed by their `id`. This will allow you to quickly retrieve an object's information whenever you need to look it up. Each individual quiz will have a `topicId` value corresponding to an individual topic in state. Similarly, each topic which will have a `quizIds` array corresponding to the associated quizzes in state. All together, your app state will look like this:
 
 ```js
 {
