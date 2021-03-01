@@ -164,8 +164,8 @@ And your action creator will receive a payload of the form
 – Task: To test your work, you'll need to connect your action creator to **NewQuizForm** and make that component work. First, import your topics selector from your topics slice and replace assign a call to that selector to the variable `topics` (which is currently assigned an empty object).
 * Hint: To use your selector you will need to call `useSelector` with the selector you defined in your topics slice.
 
-– Task: Next, import the thunk action creator from your quiz slice and dispatch it from the `handleSubmit()` event handler that fires when the new quiz form is submitted. 
-* Remember, that action creator expects to receive a payload of the form `{ id: '123', name: 'quiz name', topicId: '456', cardIds: ['1', '2', '3', ...]}`. You'll have to generate an `id` by calling `uuidv4`. For now, pass an empty array for the `cardIds` property (you'll change that in a later task). 
+– Task: Next, import the thunk action creator from your quiz slice and dispatch it from the `handleSubmit()` event handler that fires when the new quiz form is submitted.
+* Remember, that action creator expects to receive a payload of the form `{ id: '123', name: 'quiz name', topicId: '456', cardIds: ['1', '2', '3', ...]}`. You'll have to generate an `id` by calling `uuidv4`. For now, pass an empty array for the `cardIds` property (you'll change that in a later task).
 * Test that your action creator works by filling out the new quiz form. After your quiz is created you should be rerouted to the `/quizzes` page and should see your newly created quiz there.
 
 * Hint: Your dispatch statement should do something like:
@@ -180,7 +180,7 @@ dispatch(
 );
 ```
 
-– Task: Lastly, import your selector in **Quizzes.js** and **Quiz.js** and make sure those components are displaying the correct data: 
+– Task: Lastly, import your selector in **Quizzes.js** and **Quiz.js** and make sure those components are displaying the correct data:
 * The **Quizzes** component should render a **Link** for each quiz value in the quizzes slice of state.
 * The **Quiz** component uses the `react-router-dom` method `useParams()` to determine the `quizId` to render. Therefore, it needs the full set of quizzes to find the appropriate quiz object to render.
 – Hint: Use `useSelector` in conjunction with your selectors to pull the all the quizzes from state.
@@ -198,7 +198,7 @@ Export your slice's actions and reducer, and connect the cards reducer to your a
   2. Store the `id` you create for each card in the `cardIds` array we've provided for you.
 * Hint: Remember, your action creator expects to receive a payload of the form `{ id: '123', front: 'front of card', back: 'back of card'}`. You want to collect all the `cardIds` in an array so that you can pass them to the action creator that generates new quizzes. To use `uuidv4` to create an `id`, call the function like so: `uuidv4()`.
 
-– Task: You previously passed an empty array for `cardIds` to the action creator that generates a new quiz. Now that you have  written code to collect an array of all the `cardIds` created whenever the new quiz form is submitted, replace the empty array with this array of `cardIds`. To test that your code is working, create a new quiz with some cards. Navigate to that quiz from the `/quizzes` page, and verify that your cards show up. Flip them over by clicking on them to make sure that you've correctly captured all of the state belonging to each card.
+– Task: You previously passed an empty array for `cardIds` to the action creator that generates a new quiz. Now that you have  written code to collect an array of all the `cardIds` created whenever the new quiz form is submitted, replace the empty array with this array of `cardIds`. To test that your code is working, create a new quiz with some cards, navigate to that quiz from the `/quizzes` page, and verify that your cards show up. Flip them over by clicking on them to make sure that you've correctly captured all of the state belonging to each card.
 * Hint: Since you're already dispatching the action that generates a new quiz with an appropriately structured payload, all you need to do is replace the empty array you previously assigned to  `cardIds` with an array that contains the `id`s belonging to the cards associated with the quiz that's being created.
 
 – Task: Now that you can add new cards, you'll need to display cards on the individual quiz page. The `Quiz` component renders a list of `Card` components, so in **Card.js**, import your cards selector and use it to access all the cards in state.
