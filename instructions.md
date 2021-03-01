@@ -133,9 +133,9 @@ const obj = {
   * Has an `addQuiz` action. This action will receive a payload of the form `{ id: '123', name: 'quiz name', topicId: '456', cardIds: ['1', '2', '3', ...]}`.
   *  Export the selector as well as the action creators and reducer that your slice generates.
 
-Hint: 
-* Use `createSlice` to generate your quizzes slice. 
-* Your `addQuiz` action should modify the `quizzes` object in state by adding an object representing a single quiz to the `quizzes` object. 
+Hint:
+* Use `createSlice` to generate your quizzes slice.
+* Your `addQuiz` action should modify the `quizzes` object in state by adding an object representing a single quiz to the `quizzes` object.
 * Remember, we want the `quizzes` object to be keyed by quiz `id`, so insert your newly created quiz object as the value associated with the `id` you receive in the action's `payload`.
 
 – Task: Next, you should add an action to your topics slice that adds a quiz's `id` to the `quizIds` array of the topic with which the newly quiz is associated. This action action will receive a payload of the form `{quizId: '123', topicId: '456'}`.
@@ -150,6 +150,15 @@ export const thunkActionCreator = (payload) => {
       // dispatch multiple actions here
     };
 };
+```
+And your action creator will receive a payload of the form
+```js
+{
+  name: 'name of quiz',
+  topicId: '123',
+  cardIds: ['4', '5', '6'],
+  id: '789',
+}
 ```
 
 – Task: To test your work, you'll need to connect your action creator to **NewQuizForm** and make that component work. First, import your `topics` selector from your topics slice and replace our variable `topics` with a call to that selector.
