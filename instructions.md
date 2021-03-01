@@ -106,7 +106,14 @@ You might be wondering why, in each slice, we are asking you to include a proper
   * Create a selector that selects the `topics` object nested within `initialState`.
   * Export the selector as well as the action creators and reducer that your slice generates.
 
-* Hint: Use `createSlice` to generate your topics slice. Your `addTopic` action should modify the `topics` object in state by adding an object representing a single topic to the `topics` object. Remember, we want the `topics` object to be keyed by topic `id`, so insert your newly created topic object as the value associated with the `id` you receive in the action's `payload`.
+Hint: 
+* Use `createSlice` to generate your topics slice. Your `addTopic` action should modify the `state.topics` object by adding an object representing a single topic to the `state.topics` object. Remember, we want the `state.topics` object to be keyed by the topic's `id` which you receive in the action's `payload`.
+* You can use [computed property names](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names) to add values to an object using a variable as a key:
+
+```js
+const obj = {
+  [key]: value,
+}
 
 – Task: Add `topics` to the app's store.
 
