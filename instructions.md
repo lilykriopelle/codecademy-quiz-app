@@ -106,7 +106,7 @@ You might be wondering why, in each slice, we are asking you to include a proper
   * Create a selector that selects the `topics` object nested within `initialState`.
   * Export the selector as well as the action creators and reducer that your slice generates.
 
-Hint: 
+Hint:
 * Use `createSlice` to generate your topics slice. Your `addTopic` action should modify the `state.topics` object by adding an object representing a single topic to the `state.topics` object. Remember, we want the `state.topics` object to be keyed by the topic's `id` which you receive in the action's `payload`.
 * You can use [computed property names](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names) to add values to an object using a variable as a key:
 
@@ -199,4 +199,4 @@ dispatch(
 * Hint: Remember, that action creator expects to receive a payload of the form `{id: '123'}`. In the event handler that fires whenever a user clicks the trash button, dispatch your action creator with the appropriate payload.
 
 ## Solutions
-Want to see an example of how someone else has completed this project? Click this [link](TODO:REPLACE_ME) to download a zip file containing one example solution to this project.
+Great work! Visit [our forums](TODO: add link) to compare your project to our sample solution code. You can also learn how to host your own solution on GitHub so you can share it with other learners! Your solution might look different from ours, and that’s okay! There are multiple ways to solve these projects, and you’ll learn more by seeing others’ code.
