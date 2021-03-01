@@ -140,7 +140,7 @@ const obj = {
 – Task: Next, you should add an action to your topics slice that adds a quiz's `id` to the `quizIds` array of the topic with which the newly quiz is associated. This action action will receive a payload of the form `{quizId: '123', topicId: '456'}`.
 * Hint: Use the payload's `topicId` to find the correct topic in state, and `push` the payload's `quizId` into that topic's `quizIds` array.
 
-– Task: Conceptually, these two actions are part of a single process: creating a new quiz and associating it with its topic. Now that you've written both actions, write an action creator that returns a thunk that dispatches them one after the other. This thunk action creator is the one that you will dispatch when a user creates a new quiz.
+– Task: Conceptually, these two actions are part of a single process: creating a new quiz and associating it with its topic. Now that you've written both actions, in the same file as your quiz slice write an action creator that returns a thunk that dispatches them one after the other. This thunk action creator is the one that you will dispatch when a user creates a new quiz.
 
 * Hint: Remember, thunks take the form:
 ```js
