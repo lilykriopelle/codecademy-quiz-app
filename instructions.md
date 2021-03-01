@@ -102,7 +102,10 @@ You might be wondering why, in each slice, we are asking you to include a proper
 – Task: Your first task is to write code to manage the state associated with topics. Create a slice that:
   * Is named `topics`.
   * Has initial state consisting of an object that includes one property, `topics`, which corresponds to an empty object. This object will eventually hold all topics keyed by `id`.
-  * Has an `addTopic` action. You can expect the payload for this action to look like `{id: '123456', name: 'name of topic'}`. In addition to storing these values in state, each topic should have a `quizIds` property, which will correspond to an array containing the `id`s of each quiz associated with the topic. When a topic is first created, it won't have any associated quizzes, but you should still create the `quizIds` array so that all topics in state conform to the same shape. Export the action creators and reducer your slice generates, as well as a selector that selects the `topics` object nested within `initialState`.
+  * Has an `addTopic` action. You can expect the payload for this action to look like `{id: '123456', name: 'name of topic'}`. Store these values in the state as a new topic object. 
+  * Each topic object added to the state should also have a `quizIds` property, which will correspond to an array containing the `id`s of each quiz associated with the topic. When a topic is first created, it won't have any associated quizzes, but you should still create an empty `quizIds` array so that all topics in the state conform to the same shape. 
+  * Create a selector that selects the `topics` object nested within `initialState`.
+  * Export the selector as well as the action creators and reducer that your slice generates.
 
 * Hint: Use `createSlice` to generate your topics slice. Your `addTopic` action should modify the `topics` object in state by adding an object representing a single topic to the `topics` object. Remember, we want the `topics` object to be keyed by topic `id`, so insert your newly created topic object as the value associated with the `id` you receive in the action's `payload`.
 
