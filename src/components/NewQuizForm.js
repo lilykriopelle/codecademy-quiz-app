@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import ROUTES from "../app/routes";
 
 export default function NewQuizForm() {
-  const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [cards, setCards] = useState([]);
   const [topicId, setTopicId] = useState("");

@@ -81,25 +81,9 @@ Your app will include three slices: one for topics, one for quizzes (which will 
 
 You might be wondering why, in each slice, we are asking you to include a property with the same name as the slice itself. This app is relatively small, but you can imagine that in a more complex application you might want to store multiple groupings of topics, quizzes, or cards in one slice in state. For example, if you allowed users to favorite topics, you might store a `favoriteTopics` in your topics slice. By storing all the topics under a named key (rather than deciding that they should comprise the entire slice) you are creating a flexible state structure that can grow with you as you add functionality to your app.
 
-## Project Requirements
-
-- Build the application using React and Redux Toolkit
-- Version control your application with Git and host the repository on GitHub
-- Write a README (using Markdown) that documents your project including:
-  - The purpose of your project
-  - Technologies used
-  - Features
-  - Future work
-- Your application is deployed and accessible by users
-
 ## Prerequisites
 
-- HTML
-- CSS
-- JavaScript
-- React
-- Redux Toolkit
-- Git and GitHub
+To complete this project, you should have completed Codecademy's [Learn React](https://www.codecademy.com/learn/react-101) and [Learn Redux](https://www.codecademy.com/learn/learn-redux) courses.
 
 ## Dependencies
 
@@ -202,11 +186,5 @@ dispatch(
 – Task: Finally, import the action creator that deletes individual cards and connect it to the trash button that appears on each card.
 * Hint: Remember, that action creator expects to receive a payload of the form `{id: '123'}`. In the event handler that fires whenever a user clicks the trash button, dispatch your action creator with the appropriate payload.
 
-## Example Code
-Want to see an example of how someone else has completed this project? Click this [link](TODO:REPLACE_ME) to download a zip file containing one example solution to this project. Remember: your project doesn't have to look anything like this! It should be unique to your vision.
-
-## Sharing
-
-Great work! Visit [our forums](TODO:REPLACE_ME) to compare your project to our sample solution code. After you host your own solution on GitHub, be sure to share it with other learners and see how other learners have built their own projects!
-
-Your solution might look different from ours, and that’s okay! There are multiple ways to solve these projects, and you’ll learn more by seeing others’ code.
+## Solutions
+Want to see an example of how someone else has completed this project? Click this [link](TODO:REPLACE_ME) to download a zip file containing one example solution to this project.
