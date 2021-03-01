@@ -8,7 +8,8 @@ export default function NewQuizForm() {
   const [cards, setCards] = useState([]);
   const [topicId, setTopicId] = useState("");
   const history = useHistory();
-
+  const topics = {};
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name.length === 0) {
@@ -52,7 +53,7 @@ export default function NewQuizForm() {
         onChange={(e) => setTopicId(e.currentTarget.value)}
       >
         <option value="">---</option>
-        {[].map((topic) => (
+        {Object.values(topics).map((topic) => (
           <option key={topic.id} value={topic.id}>
             {topic.name}
           </option>
