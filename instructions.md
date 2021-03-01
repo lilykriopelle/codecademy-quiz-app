@@ -185,14 +185,14 @@ dispatch(
 * Is named `'cards'`
 * Has initial state consisting of an object that includes one property, `cards`, which corresponds to an empty object. This object will eventually hold all cards keyed by `id`.
 * Has an `addCard` action. This action will receive a payload of the form `{ id: '123', front: 'front of card', back: 'back of card'}`.
-* Has a `deleteCard` action that will receive a payload containing the `id` of the card to be deleted. Note: the best way to delete a property from an object is to use Javascript's built-in [`delete` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/delete).
+* Has a `deleteCard` action that will receive a payload containing the `id` of the card to be deleted.
 Export your slice's actions and reducer, and connect the cards reducer to your app's store.
-* Hint: Use `createSlice` to generate your cards slice. `addCard` should insert the payload into the `cards` object in state as the value associated with the `id` in the payload. `deleteCard` should remove the key and value corresponding to the `id` in the payload.
+* Hint: Use `createSlice` to generate your cards slice. `addCard` should insert the payload into the `cards` object in state as the value associated with the `id` in the payload. `deleteCard` should remove the key and value corresponding to the `id` in the payload. The best way to delete a property from an object is to use Javascript's built-in [`delete` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/delete).
 
 – Task: Lastly, connect your `addCard` action creator to the new quiz form. In **NewQuizForm**, in the event handler that fires when the quiz form is submitted, iterate through the `cards` in that form's local state, and for each one:
   1. `dispatch` your `addCard` action creator. You will have to generate an `id` for each card using `uuidv4`.
-  2. Store the `id` you create for each card in an array.
-* Hint: Remember, your action creator expects to receive a payload of the form `{ id: '123', front: 'front of card', back: 'back of card'}`. You want to collect all the `cardIds` in an array so that you can pass them to the action creator that generates new quizzes.
+  2. Store the `id` you create for each card in the `cardIds` array we've provided for you.
+* Hint: Remember, your action creator expects to receive a payload of the form `{ id: '123', front: 'front of card', back: 'back of card'}`. You want to collect all the `cardIds` in an array so that you can pass them to the action creator that generates new quizzes. To use `uuidv4` to create an `id`, call the function like so: `uuidv4()`.
 
 – Task: You previously passed an empty array for `cardIds` to the action creator that generates a new quiz. Now that you have  written code to collect an array of all the `cardIds` created whenever the new quiz form is submitted, replace the empty array with this array of `cardIds`. To test that your code is working, create a new quiz with some cards. Navigate to that quiz from the `/quizzes` page, and verify that your cards show up. Flip them over by clicking on them to make sure that you've correctly captured all of the state belonging to each card.
 * Hint: Since you're already dispatching the action that generates a new quiz with an appropriately structured payload, all you need to do is replace the empty array you previously assigned to  `cardIds` with an array that contains the `id`s belonging to the cards associated with the quiz that's being created.

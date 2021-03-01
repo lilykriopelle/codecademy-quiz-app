@@ -9,14 +9,16 @@ export default function NewQuizForm() {
   const [topicId, setTopicId] = useState("");
   const history = useHistory();
   const topics = {};
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name.length === 0) {
       return;
     }
 
-    // create the new cards here
+    const cardIds = [];
+
+    // create the new cards here and add each card's id to cardIds
     // create the new quiz here
 
     history.push(ROUTES.quizzesRoute());
