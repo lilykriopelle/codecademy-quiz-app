@@ -161,7 +161,7 @@ And your action creator will receive a payload of the form
 }
 ```
 
-– Task: To test your work, you'll need to connect your action creator to **NewQuizForm** and make that component work. First, import your `topics` selector from your topics slice and replace our variable `topics` with a call to that selector.
+– Task: To test your work, you'll need to connect your action creator to **NewQuizForm** and make that component work. First, import your topics selector from your topics slice and replace assign a call to that selector to the variable `topics` (which is currently assigned an empty object).
 * Hint: To use your selector you will need to call `useSelector` with the selector you defined in your topics slice.
 
 – Task: Next, import the thunk action creator from your quiz slice and dispatch it from the event handler that fires when the new quiz form is submitted. Remember, that action creator expects to receive a payload of the form `{ id: '123', name: 'quiz name', topicId: '456', cardIds: ['1', '2', '3', ...]}`. You'll have to generate an `id` by calling `uuidv4`. For now, pass an empty array for the `cardIds` property. Test that your action creator works by filling out the new quiz form. After your quiz is created you should be rerouted to the `/quizzes` page and should see your newly created quiz there.
