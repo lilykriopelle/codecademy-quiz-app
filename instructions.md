@@ -2,11 +2,17 @@
 
 Quiz App
 
+# Overview
+This project is slightly different than others you have encountered thus far on Codecademy. Instead of a step-by-step tutorial, this project contains a series of open-ended requirements which describe the project you’ll be building. There are many possible ways to correctly fulfill all of these requirements, and you should expect to use the internet, Codecademy, and other resources when you encounter a problem that you cannot easily solve.
+
 
 # Project Goals
 In this project, you will practice using Redux and Redux Toolkit to manage the complex state of a flashcard-style quiz app. Users will be able to create their own topics, quizzes for those topics, and flashcards for those quizzes. Users will also be able to interact with their quizzes by flipping flashcards over.
 
 The following task descriptions will walk through implementing the app's Redux logic starting with topics, then quizzes, and then cards. If you would like to implement it in a different order feel free to do what is comfortable for you.
+
+# Setup Instructions
+If you choose to do this project on your computer instead of Codecademy, you can download what you'll need by clicking the "Download" button below. Make sure you have [Node installed on your computer](https://www.codecademy.com/articles/setting-up-node-locally) and then, inside the project's root directory, run `npm install`. Finally, run `npm start` which will automatically open up a new tab in your browser with your running application. If a new tab does not appear, you can visit [http://localhost:3000/](http://localhost:3000/).
 
 ## Functionality
 On the `'/topics/new'` page:
@@ -92,7 +98,7 @@ This app uses [`uuid`]([the documentation](https://www.npmjs.com/package/uuid)) 
 ### `react-router`
 This app uses `react-router` to handle routing between different pages. Since `react-router` is outside the scope of this project, we've written the routing code for you, but if you're curious about how it works, you can explore `App.js` (where the routes for this app are defined) and read the [`react-router` docs](https://reactrouter.com/).
 
-## Tasks
+## Project Requirements
 
 ### Task Group 1: Create a Topics Slice
 – Task: Your first task is to write code to manage the state associated with topics. Create a slice that:
@@ -182,7 +188,7 @@ dispatch(
 – Task: Now that you can add new cards, you'll need to display cards on the individual quiz page. The `Quiz` component renders a list of `Card` components, so in **Card.js**, import your cards selector and use it to access all the cards in state.
 * Hint: Use `useSelector` in conjunction with your selector to get all the cards in state. We've already written the code that will use the `id` in props to select the relevant card.
 
-– Task: Finally, import the action creator that deletes individual cards and connect it to the trash button that appears on each card.
+– Task: Finally, in **Quiz.js** import the action creator that deletes individual cards and connect it to the trash button that appears on each card.
 * Hint: Remember, that action creator expects to receive a payload of the form `{id: '123'}`. In the event handler that fires whenever a user clicks the trash button, dispatch your action creator with the appropriate payload.
 
 ## Solutions
