@@ -98,12 +98,11 @@ This app uses `react-router` to handle routing between different pages. Since `r
 
 You might be wondering why, in each slice, we are asking you to include a property with the same name as the slice itself. This app is relatively small, but you can imagine that in a more complex application you might want to store multiple groupings of topics, quizzes, or cards in one slice in state. For example, if you allowed users to favorite topics, you might store a `favoriteTopics` in your topics slice. By storing all the topics under a named key (rather than deciding that they should comprise the entire slice) you are creating a flexible state structure that can grow with you as you add functionality to your app. This is how we recommend you structure your state, but you are free to adjust it if you wish. Just know that the rest of the instructions assume you are using this structure.
 
-### Task Group 1: Create a Topics Slice
-– Task: Your first task is to write code to manage the state associated with topics. Create a slice that:
+– Task: Your first task is to write code to manage the state associated with topics. Create a file containing a slice that:
   * Is named `topics`.
   * Has initial state consisting of an object that includes one property, `topics`, which corresponds to an empty object. This object will eventually hold all topics keyed by `id`.
-  * Has an `addTopic` action. You can expect the payload for this action to look like `{id: '123456', name: 'name of topic'}`. Store these values in the state as a new topic object. 
-  * Each topic object added to the state should also have a `quizIds` property, which will correspond to an array containing the `id`s of each quiz associated with the topic. When a topic is first created, it won't have any associated quizzes, but you should still create an empty `quizIds` array so that all topics in the state conform to the same shape. 
+  * Has an `addTopic` action. You can expect the payload for this action to look like `{id: '123456', name: 'name of topic'}`. Store these values in the state as a new topic object.
+  * Each topic object added to the state should also have a `quizIds` property, which will correspond to an array containing the `id`s of each quiz associated with the topic. When a topic is first created, it won't have any associated quizzes, but you should still create an empty `quizIds` array so that all topics in the state conform to the same shape.
   * Create a selector that selects the `topics` object nested within `initialState`.
   * Export the selector as well as the action creators and reducer that your slice generates.
 
