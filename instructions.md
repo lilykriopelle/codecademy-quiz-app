@@ -180,7 +180,9 @@ dispatch(
 );
 ```
 
-– Task: Lastly, import your selector in **Quizzes.js** and **Quiz.js** and make sure those components are displaying the correct data.
+– Task: Lastly, import your selector in **Quizzes.js** and **Quiz.js** and make sure those components are displaying the correct data: 
+* The **Quizzes** component should render a **Link** for each quiz value in the quizzes slice of state.
+* The **Quiz** component uses the `react-router-dom` method `useParams()` to determine the `quizId` to render. Therefore, it needs the full set of quizzes to find the appropriate quiz object to render.
 – Hint: Use `useSelector` in conjunction with your selectors to pull the all the quizzes from state.
 
 – Task: Great work! Next, create a slice for cards that:
