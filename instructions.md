@@ -114,6 +114,7 @@ Hint:
 const obj = {
   [key]: value,
 }
+```
 
 – Task: Add `topics` to the app's store.
 
