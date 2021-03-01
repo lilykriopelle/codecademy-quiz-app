@@ -37,9 +37,21 @@ On the `'/quizzes/:quizId'` page:
 
 **TODO ADD GIF HERE**
 
-## State Structure
+## Prerequisites
 
-Your app will include three slices: one for topics, one for quizzes, and one for cards. Each slice's state should include an object storing all the topics/quizzes/cards keyed by their `id`. This will allow you to quickly retrieve an object's information whenever you need to look it up. Each individual quiz will have a `topicId` value corresponding to an individual topic in state. Similarly, each topic which will have a `quizIds` array corresponding to the associated quizzes in state. All together, your app state will look like this:
+To complete this project, you should have completed Codecademy's [Learn React](https://www.codecademy.com/learn/react-101) and [Learn Redux](https://www.codecademy.com/learn/learn-redux) courses.
+
+## Dependencies
+
+### `uuid`
+This app uses [`uuid`]([the documentation](https://www.npmjs.com/package/uuid)) to create unique identifiers for topics/quizzes/cards. We will be using the [`v4` function](https://www.npmjs.com/package/uuid#uuidv4options-buffer-offset), so take a moment to read that section of the docs before continuing on.   
+
+### `react-router`
+This app uses `react-router` to handle routing between different pages. Since `react-router` is outside the scope of this project, we've written the routing code for you, but if you're curious about how it works, you can explore `App.js` (where the routes for this app are defined) and read the [`react-router` docs](https://reactrouter.com/).
+
+## Project Requirements
+
+– Task: Before you start writing code, take a moment to review our recommended state structure. Your app will include three slices: one for topics, one for quizzes, and one for cards. Each slice's state should include an object storing all the topics/quizzes/cards keyed by their `id`. This will allow you to quickly retrieve an object's information whenever you need to look it up. Each individual quiz will have a `topicId` value corresponding to an individual topic in state. Similarly, each topic which will have a `quizIds` array corresponding to the associated quizzes in state. All together, your app state will look like this:
 
 ```js
 {
@@ -84,21 +96,7 @@ Your app will include three slices: one for topics, one for quizzes, and one for
 }
 ```
 
-You might be wondering why, in each slice, we are asking you to include a property with the same name as the slice itself. This app is relatively small, but you can imagine that in a more complex application you might want to store multiple groupings of topics, quizzes, or cards in one slice in state. For example, if you allowed users to favorite topics, you might store a `favoriteTopics` in your topics slice. By storing all the topics under a named key (rather than deciding that they should comprise the entire slice) you are creating a flexible state structure that can grow with you as you add functionality to your app.
-
-## Prerequisites
-
-To complete this project, you should have completed Codecademy's [Learn React](https://www.codecademy.com/learn/react-101) and [Learn Redux](https://www.codecademy.com/learn/learn-redux) courses.
-
-## Dependencies
-
-### `uuid`
-This app uses [`uuid`]([the documentation](https://www.npmjs.com/package/uuid)) to create unique identifiers for topics/quizzes/cards. We will be using the [`v4` function](https://www.npmjs.com/package/uuid#uuidv4options-buffer-offset), so take a moment to read that section of the docs before continuing on.   
-
-### `react-router`
-This app uses `react-router` to handle routing between different pages. Since `react-router` is outside the scope of this project, we've written the routing code for you, but if you're curious about how it works, you can explore `App.js` (where the routes for this app are defined) and read the [`react-router` docs](https://reactrouter.com/).
-
-## Project Requirements
+You might be wondering why, in each slice, we are asking you to include a property with the same name as the slice itself. This app is relatively small, but you can imagine that in a more complex application you might want to store multiple groupings of topics, quizzes, or cards in one slice in state. For example, if you allowed users to favorite topics, you might store a `favoriteTopics` in your topics slice. By storing all the topics under a named key (rather than deciding that they should comprise the entire slice) you are creating a flexible state structure that can grow with you as you add functionality to your app. This is how we recommend you structure your state, but you are free to adjust it if you wish. Just know that the rest of the instructions assume you are using this structure.
 
 ### Task Group 1: Create a Topics Slice
 – Task: Your first task is to write code to manage the state associated with topics. Create a slice that:
