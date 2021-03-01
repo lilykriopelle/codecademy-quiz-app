@@ -168,7 +168,7 @@ And your action creator will receive a payload of the form
 * Remember, that action creator expects to receive a payload of the form `{ id: '123', name: 'quiz name', topicId: '456', cardIds: ['1', '2', '3', ...]}`. You'll have to generate an `id` by calling `uuidv4`. For now, pass an empty array for the `cardIds` property (you'll change that in a later task). 
 * Test that your action creator works by filling out the new quiz form. After your quiz is created you should be rerouted to the `/quizzes` page and should see your newly created quiz there.
 
-* Hint: Your event handler should do something like:
+* Hint: Your dispatch statement should do something like:
 ```js
 dispatch(
     addQuizForTopicId({
