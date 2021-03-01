@@ -138,7 +138,7 @@ Hint:
 * Your `addQuiz` action should modify the `quizzes` object in state by adding an object representing a single quiz to the `quizzes` object.
 * Remember, we want the `quizzes` object to be keyed by quiz `id`, so insert your newly created quiz object as the value associated with the `id` you receive in the action's `payload`.
 
-– Task: Next, you should add an action to your topics slice that adds a quiz's `id` to the `quizIds` array of the topic with which the newly quiz is associated. This action action will receive a payload of the form `{quizId: '123', topicId: '456'}`.
+– Task: Next, you should add an action to your topics slice that adds a quiz's `id` to the `quizIds` array of the topic with which the newly quiz is associated. This action action will receive a payload of the form `{quizId: '123', topicId: '456'}`. Make sure to export this action creator for use elsewhere in the app.
 * Hint: Use the payload's `topicId` to find the correct topic in state, and `push` the payload's `quizId` into that topic's `quizIds` array.
 
 – Task: Conceptually, these two actions are part of a single process: creating a new quiz and associating it with its topic. Now that you've written both actions, in the same file as your quiz slice write an action creator that returns a thunk that dispatches them one after the other. This thunk action creator is the one that you will dispatch when a user creates a new quiz.
