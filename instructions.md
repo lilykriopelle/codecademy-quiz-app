@@ -3,11 +3,10 @@
 Quiz App
 
 
-# Description
-Create an app that allows users to create topics, quizzes, and flashcards and interact with their quizzes by flipping flashcards over.
+# Project Goals
+In this project, you will practice using Redux and Redux Toolkit to manage the complex state of a flashcard-style quiz app. Users will be able to create their own topics, quizzes for those topics, and flashcards for those quizzes. Users will also be able to interact with their quizzes by flipping flashcards over.
 
-# Objective
-This project – an app in which users can create and view topics and quizzes (which are comprised of flashcards) that are associated with those topics – gives you an opportunity to practice using Redux and Redux Toolkit to manage complex state.
+The following task descriptions will walk through implementing the app's Redux logic starting with topics, then quizzes, and then cards. If you would like to implement it in a different order feel free to do what is comfortable for you.
 
 ## Functionality
 On the `'/topics/new'` page:
@@ -34,7 +33,7 @@ On the `'/quizzes/:quizId'` page:
 
 ## State Structure
 
-Your app will include three slices: one for topics, one for quizzes (which will have a `topicId` corresponding to a topic in state), and one for cards (which will have a `quizId` corresponding to a quiz in state). Each slice's state should include an object storing all the topics/quizzes/cards keyed by their `id`. This will allow you to quickly retrieve an object's information whenever you need to look it up. All together, your app state will look like this:
+Your app will include three slices: one for topics, one for quizzes, and one for cards. Each slice's state should include an object storing all the topics/quizzes/cards keyed by their `id`. This will allow you to quickly retrieve an object's information whenever you need to look it up. Each individual quiz will have a `topicId` value corresponding to an individual topic in state. Similarly, each topic which will have a `quizIds` array corresponding to the associated quizzes in state. All together, your app state will look like this:
 
 ```js
 {
