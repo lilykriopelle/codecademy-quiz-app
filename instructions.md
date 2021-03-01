@@ -133,7 +133,10 @@ const obj = {
   * Has an `addQuiz` action. This action will receive a payload of the form `{ id: '123', name: 'quiz name', topicId: '456', cardIds: ['1', '2', '3', ...]}`.
   *  Export the selector as well as the action creators and reducer that your slice generates.
 
-* Hint: Use `createSlice` to generate your quizzes slice. Your `addQuiz` action should modify the `quizzes` object in state by adding an object representing a single quiz to the `quizzes` object. Remember, we want the `quizzes` object to be keyed by quiz `id`, so insert your newly created quiz object as the value associated with the `id` you receive in the action's `payload`.
+Hint: 
+* Use `createSlice` to generate your quizzes slice. 
+* Your `addQuiz` action should modify the `quizzes` object in state by adding an object representing a single quiz to the `quizzes` object. 
+* Remember, we want the `quizzes` object to be keyed by quiz `id`, so insert your newly created quiz object as the value associated with the `id` you receive in the action's `payload`.
 
 – Task: Next, you should add an action to your topics slice that adds a quiz's `id` to the `quizIds` array of the topic with which the newly quiz is associated. This action action will receive a payload of the form `{quizId: '123', topicId: '456'}`.
 * Hint: Use the payload's `topicId` to find the correct topic in state, and `push` the payload's `quizId` into that topic's `quizIds` array.
