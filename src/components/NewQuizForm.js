@@ -59,51 +59,60 @@ export default function NewQuizForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Create a New Quiz</h2>
-      <label htmlFor="quiz-name">Name</label>
-      <input
-        id="quiz-name"
-        value={name}
-        onChange={(e) => setName(e.currentTarget.value)}
-      />
-      <label htmlFor="quiz-topic">Topic</label>
-      <select
-        id="quiz-topic"
-        onChange={(e) => setTopicId(e.currentTarget.value)}
-      >
-        <option value="">---</option>
-        {Object.values(topics).map((topic) => (
-          <option key={topic.id} value={topic.id}>
-            {topic.name}
-          </option>
+    <section>
+      <h1>Create a new quiz</h1>
+      <form onSubmit={handleSubmit}>
+        <input
+          id="quiz-name"
+          value={name}
+          onChange={(e) => setName(e.currentTarget.value)}
+          placeholder="Quiz Title"
+        />
+        <select
+          id="quiz-topic"
+          onChange={(e) => setTopicId(e.currentTarget.value)}
+          placeholder="Topic"
+        >
+          <option value="">Topic</option>
+          {Object.values(topics).map((topic) => (
+            <option key={topic.id} value={topic.id}>
+              {topic.name}
+            </option>
+          ))}
+        </select>
+        {cards.map((card, index) => (
+          <div key={index} className="card-front-back">
+            <input
+              id={`card-front-${index}`}
+              value={cards[index].front}
+              onChange={(e) =>
+                updateCardState(index, "front", e.currentTarget.value)
+              }
+              placeholder="Front"
+            />
+
+            <input
+              id={`card-back-${index}`}
+              value={cards[index].back}
+              onChange={(e) =>
+                updateCardState(index, "back", e.currentTarget.value)
+              }
+              placeholder="Back"
+            />
+
+            <button
+              onClick={(e) => removeCard(e, index)}
+              className="remove-card-button"
+            >
+              Remove Card
+            </button>
+          </div>
         ))}
-      </select>
-      {cards.map((card, index) => (
-        <div key={index}>
-          <label htmlFor={`card-front-${index}`}>Front</label>
-          <input
-            id={`card-front-${index}`}
-            value={cards[index].front}
-            onChange={(e) =>
-              updateCardState(index, "front", e.currentTarget.value)
-            }
-          />
-
-          <label htmlFor={`card-back-${index}`}>Back</label>
-          <input
-            id={`card-back-${index}`}
-            value={cards[index].back}
-            onChange={(e) =>
-              updateCardState(index, "back", e.currentTarget.value)
-            }
-          />
-
-          <button onClick={(e) => removeCard(e, index)}>remove card</button>
+        <div className="actions-container">
+          <button onClick={addCardInputs}>Add a Card</button>
+          <button>Create Quiz</button>
         </div>
-      ))}
-      <button onClick={addCardInputs}>Add a Card</button>
-      <button>Create Quiz</button>
-    </form>
+      </form>
+    </section>
   );
 }

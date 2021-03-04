@@ -3,9 +3,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
+  NavLink,
   useRouteMatch,
-  useParams,
 } from "react-router-dom";
 import NewQuizForm from "../components/NewQuizForm";
 import NewTopicForm from "../components/NewTopicForm";
@@ -18,30 +17,34 @@ import ROUTES from "./routes";
 export default function App() {
   return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to={ROUTES.topicsRoute()}>Topics</Link>
-            </li>
-            <li>
-              <Link to={ROUTES.quizzesRoute()}>Quizzes</Link>
-            </li>
-            <li>
-              <Link to={ROUTES.newQuizRoute()}>New Quiz</Link>
-            </li>
-          </ul>
-        </nav>
+      <nav>
+        <ul>
+          <li>
+            <NavLink to={ROUTES.topicsRoute()} activeClassName="active">
+              Topics
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={ROUTES.quizzesRoute()} activeClassName="active">
+              Quizzes
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={ROUTES.newQuizRoute()} activeClassName="active">
+              New Quiz
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
 
-        <Switch>
-          <Route path="/topics">
-            <TopicsRoutes />
-          </Route>
-          <Route path="/quizzes">
-            <QuizRoutes />
-          </Route>
-        </Switch>
-      </div>
+      <Switch>
+        <Route path="/topics">
+          <TopicsRoutes />
+        </Route>
+        <Route path="/quizzes">
+          <QuizRoutes />
+        </Route>
+      </Switch>
     </Router>
   );
 }
