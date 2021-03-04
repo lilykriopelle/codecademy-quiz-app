@@ -13,8 +13,9 @@ export default function Topic() {
   const quizzesForTopic = topic.quizIds.map((quizId) => quizzes[quizId]);
 
   return (
-    <>
-      <h2>Topic: {topic.name}</h2>
+    <section>
+      <img src={topic.icon} alt="" className="topic-icon" />
+      <h1>{topic.name}</h1>
       <ul className="quizzes-list">
         {quizzesForTopic.map((quiz) => (
           <li className="quiz" key={quiz.id}>
@@ -22,7 +23,9 @@ export default function Topic() {
           </li>
         ))}
       </ul>
-      <Link to="/quizzes/new">Create a New Quiz</Link>
-    </>
+      <Link to="/quizzes/new" className="button center">
+        Create a New Quiz
+      </Link>
+    </section>
   );
 }

@@ -10,14 +10,16 @@ export default function Topic() {
   const quiz = quizzes[quizId];
 
   return (
-    <>
-      <h2>{quiz.name}</h2>
+    <section>
+      <h1>{quiz.name}</h1>
       <ul className="cards-list">
         {quiz.cardIds.map((id) => (
           <Card key={id} id={id} />
         ))}
       </ul>
-      <Link to={ROUTES.newQuizRoute()}>Create a New Quiz</Link>
-    </>
+      <Link to={ROUTES.newQuizRoute()} className="button center">
+        Create a New Quiz
+      </Link>
+    </section>
   );
 }
