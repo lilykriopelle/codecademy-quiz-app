@@ -14,29 +14,6 @@ The following task descriptions will walk through implementing the app's Redux l
 # Setup Instructions
 If you choose to do this project on your computer instead of Codecademy, you can download what you'll need by clicking the "Download" button below. Make sure you have [Node installed on your computer](https://www.codecademy.com/articles/setting-up-node-locally) and then, inside the project's root directory, run `npm install`. Finally, run `npm start` which will automatically open up a new tab in your browser with your running application. If a new tab does not appear, you can visit [http://localhost:3000/](http://localhost:3000/).
 
-## Functionality
-On the `'/topics/new'` page:
-  - Users can create topics
-On the `'/topics'` page:
-  – Users can view all topics
-  – Users can click an individual topic and be redirected to the page for that topic
-On the `/topics/:topicId` page:
-  - Users can view an individual topic and all quizzes for that topic
-  – Users can click a quiz associated with a topic and be redirected to that quiz's page
-On the `'quizzes/new'` page:
-  - Users can create quizzes that:
-    - Are associated with topics
-    – Contain lists of flashcards
-      – Users can dynamically change the number of cards in a quiz by adding and removing card fields in the new quiz form
-On the `'/quizzes'` page:
-  - Users can view all quizzes
-  – Users can click an individual quiz and be redirected to that quiz's page
-On the `'/quizzes/:quizId'` page:
-  - Users can view an individual quiz and flip cards over
-  – Users can delete a card associated with a quiz
-
-**TODO ADD GIF HERE**
-
 ## Prerequisites
 
 To complete this project, you should have completed Codecademy's [Learn React](https://www.codecademy.com/learn/react-101) and [Learn Redux](https://www.codecademy.com/learn/learn-redux) courses.
@@ -50,6 +27,35 @@ This app uses [`uuid`]([the documentation](https://www.npmjs.com/package/uuid)) 
 This app uses `react-router` to handle routing between different pages. Since `react-router` is outside the scope of this project, we've written the routing code for you, but if you're curious about how it works, you can explore `App.js` (where the routes for this app are defined) and read the [`react-router` docs](https://reactrouter.com/).
 
 ## Project Requirements
+
+– Task: At a high level, your application will be able to handle the following URL routes, each with their own functionality:
+
+On the `'/topics/new'` page:
+  - Users can create topics
+
+On the `'/topics'` page:
+  – Users can view all topics
+  – Users can click an individual topic and be redirected to the page for that topic
+
+On the `/topics/:topicId` page:
+  - Users can view an individual topic and all quizzes for that topic
+  – Users can click a quiz associated with a topic and be redirected to that quiz's page
+
+On the `'quizzes/new'` page:
+  - Users can create quizzes that:
+    - Are associated with topics
+    – Contain lists of flashcards
+      – Users can dynamically change the number of cards in a quiz by adding and removing card fields in the new quiz form
+
+On the `'/quizzes'` page:
+  - Users can view all quizzes
+  – Users can click an individual quiz and be redirected to that quiz's page
+
+On the `'/quizzes/:quizId'` page:
+  - Users can view an individual quiz and flip cards over
+  – Users can delete a card associated with a quiz
+
+**TODO ADD GIF HERE**
 
 – Task: Before you start writing code, take a moment to review our recommended state structure. Your app will include three slices: one for topics, one for quizzes, and one for cards. Each slice's state should include an object storing all the topics/quizzes/cards keyed by their `id`. This will allow you to quickly retrieve an object's information whenever you need to look it up. Each individual quiz will have a `topicId` value corresponding to an individual topic in state. Similarly, each topic which will have a `quizIds` array corresponding to the associated quizzes in state. All together, your app state will look like this:
 
