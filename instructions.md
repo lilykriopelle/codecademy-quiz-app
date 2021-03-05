@@ -122,7 +122,7 @@ const obj = {
 
 – Task: In **Topics.js**, import the selector defined in your slice and use it to access all the topics in state, and replace the empty object currently assigned to `topics` with the topics in state.
 
-* Hint: Use `useSelector` conjunction with your selector to access all the topics in state.
+* Hint: You will need to import `useSelector` and then call it in conjunction with your selector to access all the topics in state.
 
 – Task: Next, you'll need to hook the new topic form up to the action creators your slice generates. In **NewTopicForm.js**, import `addTopic` and dispatch it from the event handler that runs when the new topic form is submitted.  Verify that your code is working by filling out the form and submitting it. You should be redirected to the `/topics` page and should see your newly created topic there.
 
