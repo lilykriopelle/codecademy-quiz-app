@@ -126,7 +126,9 @@ const obj = {
 
 – Task: Next, you'll need to hook the new topic form up to the action creators your slice generates. In **NewTopicForm.js**, import `addTopic` and dispatch it from the event handler that runs when the new topic form is submitted.  Verify that your code is working by filling out the form and submitting it. You should be redirected to the `/topics` page and should see your newly created topic there.
 
-* Hint: You will need to include the topic's `name` in the action payload as well as an `id` property (you should generate a value for this property by calling `uuidv4()`).
+* Hint: 
+- You will need to import and call the `useDispatch()` method in order to dispatch actions to the store.
+- You will need to include the topic's `name` in the action payload as well as an `id` property (you should generate a value for this property by calling `uuidv4()`).
 
 – Task: Great work! Now that you can create topics, your next task is to build out the necessary functionality to add quizzes to your app. This will involve creating two new slices—one for the quizzes themselves and one for the cards that comprise them—and adding an action to your topics slice to associate quizzes with the topic to which they belong. To start, create a slice for quizzes that:
   * Is named `'quizzes'`
