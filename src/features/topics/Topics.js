@@ -8,8 +8,8 @@ export default function Topics() {
   const topics = useSelector(selectTopics);
 
   return (
-    <section>
-      <h1 className="center">Topics</h1>
+    <section className="center">
+      <h1>Topics</h1>
       <ul className="topics-list">
         {Object.values(topics).map((topic) => (
           <li className="topic" key={topic.id}>
